@@ -410,8 +410,19 @@ class MKTableView extends React.Component<MKTableViewProps, any> {
                 this.scrollBar['setScrollTranslateY'](scrollTop, 0);
             }
 
+        } else if (translateY >= this.maxPointY) {
+
+            translateY = 0;
+
+            if (this.showsVerticalScrollIndicator) {
+                this.scrollBar['setScrollTranslateY'](0, 0);
+            }
         } else {
-            return;
+            translateY = this.minPointY;
+
+            if (this.showsVerticalScrollIndicator) {
+                this.scrollBar['setScrollTranslateY'](1, 0);
+            }
         }
 
         this.endTranslateY = translateY;
