@@ -8,5 +8,6 @@ import MKTableView from './MKTableView';
 import MKTableViewCell from './MKTableViewCell';
 import MKTableHeaderView from './MKTableHeaderView';
 import MKTableFooterView from './MKTableFooterView';
+import MKTableViewCellHeader from './MKTableViewCellHeader'
 
-export { MKTableView, MKTableViewCell, MKTableHeaderView, MKTableFooterView};
+export { MKTableView, MKTableViewCellHeader, MKTableViewCell, MKTableHeaderView, MKTableFooterView};

@@ -6,11 +6,19 @@ import ReactElement = __React.ReactElement;
 class MKTableViewCell extends React.Component<any, any> {
 
     initializeSubviews(): ReactElement<any> {
-        return <div>not implements initializeSubviews</div>;
+        return <span>not implements initializeSubviews</span>;
     }
 
     render() {
-        return this.initializeSubviews()
+
+        const {allowClickOnTableViewCell, style, key} = this.props;
+
+        return (
+            <li className="mk_table_view_cell" style={style} key={key}>
+                {this.initializeSubviews()}
+                {allowClickOnTableViewCell ? <a className="mk_table_view_row_link" /> : null}
+            </li>
+        )
     }
 }
 

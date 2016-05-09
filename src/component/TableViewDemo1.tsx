@@ -73,7 +73,89 @@ class TableViewDemo extends React.Component<any, any> implements MkTableViewData
         {text: 'cell7'},
         {text: 'cell8'},
         {text: 'cell9'},
-        {text: 'cell10'}
+        {text: 'cell10'},
+        {text: 'cell11'},
+        {text: 'cell12'},
+        {text: 'cell13'},
+        {text: 'cell14'},
+        {text: 'cell15'},
+        {text: 'cell16'},
+        {text: 'cell17'},
+        {text: 'cell18'},
+        {text: 'cell19'},
+        {text: 'cell20'},
+        {text: 'cell21'},
+        {text: 'cell22'},
+        {text: 'cell23'},
+        {text: 'cell24'},
+        {text: 'cell25'},
+        {text: 'cell26'},
+        {text: 'cell27'},
+        {text: 'cell28'},
+        {text: 'cell29'},
+        {text: 'cell31'},
+        {text: 'cell32'},
+        {text: 'cell33'},
+        {text: 'cell34'},
+        {text: 'cell35'},
+        {text: 'cell36'},
+        {text: 'cell37'},
+        {text: 'cell38'},
+        {text: 'cell39'},
+        {text: 'cell41'},
+        {text: 'cell42'},
+        {text: 'cell43'},
+        {text: 'cell44'},
+        {text: 'cell45'},
+        {text: 'cell46'},
+        {text: 'cell47'},
+        {text: 'cell48'},
+        {text: 'cell49'},
+        {text: 'cell51'},
+        {text: 'cell52'},
+        {text: 'cell53'},
+        {text: 'cell54'},
+        {text: 'cell55'},
+        {text: 'cell56'},
+        {text: 'cell57'},
+        {text: 'cell58'},
+        {text: 'cell59'},
+        {text: 'cell61'},
+        {text: 'cell62'},
+        {text: 'cell63'},
+        {text: 'cell64'},
+        {text: 'cell65'},
+        {text: 'cell66'},
+        {text: 'cell67'},
+        {text: 'cell68'},
+        {text: 'cell69'},
+        {text: 'cell71'},
+        {text: 'cell72'},
+        {text: 'cell73'},
+        {text: 'cell74'},
+        {text: 'cell75'},
+        {text: 'cell76'},
+        {text: 'cell77'},
+        {text: 'cell78'},
+        {text: 'cell79'},
+        {text: 'cell81'},
+        {text: 'cell82'},
+        {text: 'cell83'},
+        {text: 'cell84'},
+        {text: 'cell85'},
+        {text: 'cell86'},
+        {text: 'cell87'},
+        {text: 'cell88'},
+        {text: 'cell89'},
+        {text: 'cell91'},
+        {text: 'cell92'},
+        {text: 'cell93'},
+        {text: 'cell94'},
+        {text: 'cell95'},
+        {text: 'cell96'},
+        {text: 'cell97'},
+        {text: 'cell98'},
+        {text: 'cell99'},
     ];
 
     private isValidTouchStart: boolean = false;
@@ -87,13 +169,13 @@ class TableViewDemo extends React.Component<any, any> implements MkTableViewData
         return section == 0 ? 1 : this.data.length;
     }
 
-    cellForRowAtIndexPath(tableView, indexPath) {
-        return indexPath.section == 0 ? <CustomTableViewCellForTouch /> : <CustomTableViewCell {...this.data[indexPath.row]}/>
+    cellForRowAtIndexPath(tableView, indexPath, settings) {
+        return <CustomTableViewCell {...settings} {...this.data[indexPath.row]}/>
     }
 
     // MKTableViewDelegate
     heightForRowAtIndexPath(tableView, indexPath) {
-        return indexPath.section == 0 ? 120 : 44;
+        return 44;
     }
 
 

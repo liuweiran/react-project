@@ -11,7 +11,7 @@ interface IndexPath {
 
 interface MkTableViewDataSource {
     numberOfRowsInSection(tableView: ReactElement<any>|any, section: number): number;
-    cellForRowAtIndexPath(tableView: ReactElement<any>, indexPath: IndexPath): ReactElement<any>;
+    cellForRowAtIndexPath(tableView: ReactElement<any>, indexPath: IndexPath, settings: Object): ReactElement<any>;
     numberOfSectionsInTableView(tableView: ReactElement<any>|any): number;
     titleForHeaderInSection?(tableView: ReactElement<any>, section: number): string;
     titleForFooterInSection?(tableView: ReactElement<any>, section: number): string;

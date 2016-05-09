@@ -9,6 +9,7 @@ import { compose, applyMiddleware, createStore } from 'redux';
 
 import reducer from './MKTableView/MKTableViewReducer';
 import { MKTableView, MKTableViewCell, MKTableHeaderView, MKTableFooterView} from './MKTableView';
+import objectAssign = require("object-assign");
 
 const logger = createLogger();
 const store = createStore(reducer, compose(
@@ -63,13 +64,14 @@ class CustomTableFooterView extends MKTableFooterView {
 
 class TableViewContainer extends React.Component<any, any> implements MkTableViewDataSource, MKTableViewDelegate {
 
-    data = [[{text: 'cell1'}, {text: 'cell2'}, {text: 'cell3'}, {text: 'cell4'}, {text: 'cell5'}, {text: 'cell6'}, {text: 'cell7'}, {text: 'cell8'}, {text: 'cell9'}, {text: 'cell10'}],
-        [{text: 'cell11'}, {text: 'cell12'}, {text: 'cell13'}, {text: 'cell14'}, {text: 'cell15'}, {text: 'cell16'}, {text: 'cell17'}, {text: 'cell18'}, {text: 'cell19'}, {text: 'cell20'}],
-        [{text: 'cell21'}, {text: 'cell22'}, {text: 'cell23'}, {text: 'cell24'}, {text: 'cell25'}, {text: 'cell26'}, {text: 'cell27'}, {text: 'cell28'}, {text: 'cell29'}, {text: 'cell30'}]];
+
 
     public state = {
         tableHeaderViewText: '下拉刷新',
-        tableFooterViewText: '上拉加载更多'
+        tableFooterViewText: '上拉加载更多',
+        data : [
+            [{text: 'cell1'}, {text: 'cell2'}, {text: 'cell3'}, {text: 'cell4'}, {text: 'cell5'}, {text: 'cell6'}, {text: 'cell7'}, {text: 'cell8'}, {text: 'cell9'}, {text: 'cell10'}]
+        ]
     };
 
     private mkTableView: any;
@@ -80,17 +82,17 @@ class TableViewContainer extends React.Component<any, any> implements MkTableVie
     
     // MKTableViewDataSource
     numberOfSectionsInTableView(tableView) {
-        return 3;
+        return this.state.data.length;
     }
     
     numberOfRowsInSection(tableView, section) {
-        return this.data[section].length;
+        return this.state.data[section].length;
     }
 
-    cellForRowAtIndexPath(tableView, indexPath) {
+    cellForRowAtIndexPath(tableView, indexPath, settings) {
         return indexPath.section == 0 && indexPath.row == 0 ?
-            <CustomTableViewCell1 {...this.data[indexPath.section][indexPath.row]} /> :
-            <CustomTableViewCell {...this.data[indexPath.section][indexPath.row]}/>
+            <CustomTableViewCell1 {...settings} {...this.state.data[indexPath.section][indexPath.row]} /> :
+            <CustomTableViewCell {...settings} {...this.state.data[indexPath.section][indexPath.row]}/>
     }
 
     titleForHeaderInSection(tableView, section) {
@@ -99,7 +101,7 @@ class TableViewContainer extends React.Component<any, any> implements MkTableVie
     
     // MKTableViewDelegate
     heightForRowAtIndexPath(tableView, indexPath) {
-        return indexPath.section == 0 && indexPath.row == 0 ? 200: 50;
+        return 50;
     }
 
     heightForHeaderInSection(tableView, section) {
@@ -150,13 +152,18 @@ class TableViewContainer extends React.Component<any, any> implements MkTableVie
     }
 
     finishLoadData() {
+        let data = objectAssign([], this.state.data);
+        data.push([{text: 'cell1'}, {text: 'cell2'}, {text: 'cell3'}, {text: 'cell4'}, {text: 'cell5'}, {text: 'cell6'}, {text: 'cell7'}, {text: 'cell8'}, {text: 'cell9'}, {text: 'cell10'}]);
+        this.setState({data: data});
+        this.refs['tableView']['refresh']();
         this.mkTableView.resetPosition(true)
+
     }
 
     render() {
         return (
             <Provider store={store}>
-                <MKTableView dataSource={this} delegate={this} tableHeaderView={true} tableFooterView={true} bounce={false} limitDisplayTopHeight={16} limitDisplayBottomHeight={16}>
+                <MKTableView ref="tableView" dataSource={this} delegate={this} tableHeaderView={true} tableFooterView={true} bounce={false} limitDisplayTopHeight={16} limitDisplayBottomHeight={16}>
                     <CustomTableHeaderView text={this.state.tableHeaderViewText} />
                     <CustomTableFooterView text={this.state.tableFooterViewText} />
                 </MKTableView>
