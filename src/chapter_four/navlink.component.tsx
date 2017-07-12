@@ -2,7 +2,8 @@
  * Created by Gene on 16/3/15.
  */
 
-import { Link } from 'react-router';
+import * as Router from 'react-router';
+const {Link} = Router;
 
 class NavLinkComponent extends React.Component<any, any> {
     render() {

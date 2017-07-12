@@ -4,7 +4,8 @@
 
 /// <reference path="../../typings/tsd.d.ts" />
 
-import { Router, Route, hashHistory, IndexRoute } from 'react-router';
+import * as Router from 'react-router';
+const {hashHistory, IndexRoute, Route, Router} = Router;
 
 import AppComponent from './app.component';
 import AboutComponent from './about.component';

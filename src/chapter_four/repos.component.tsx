@@ -2,8 +2,6 @@
  * Created by Gene on 16/3/15.
  */
 
-import { Link } from 'react-router'
-
 import NavLink from './navlink.component'
 
 class ReposComponent extends React.Component<any, any> {

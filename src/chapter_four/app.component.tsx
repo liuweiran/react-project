@@ -1,9 +1,9 @@
 /**
  * Created by Gene on 16/3/14.
  */
-/// <reference path="../../typings/tsd.d.ts" />
 
-import { Link, IndexLink } from 'react-router';
+import * as Router from 'react-router';
+const {Link, IndexLink} = Router;
 
 import NavLink from './navlink.component';
 
