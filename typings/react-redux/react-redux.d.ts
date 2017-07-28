@@ -42,7 +42,7 @@ declare module "react-redux" {
    * @param mergeProps
    * @param options
    */
-  export function connect(): InferableComponentDecorator;
+  // export function connect(): InferableComponentDecorator;
   export function connect<
     TStateProps extends Props<any>,
     TDispatchProps extends Props<any>,

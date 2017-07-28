@@ -24,6 +24,7 @@
     "autoprefixer-loader": "^3.2.0",
     "css-loader": "^0.23.1",
     "del": "^2.2.0",
+    "express": "^4.15.3",
     "gulp": "^3.9.1",
     "gulp-typescript": "^2.12.1",
     "jsx-loader": "^0.13.2",
@@ -32,6 +33,7 @@
     "sass-loader": "^3.2.0",
     "style-loader": "^0.13.1",
     "typescript": "^1.8.7",
-    "webpack": "^1.12.14"
+    "webpack": "^1.12.14",
+    "whatwg-fetch": "^2.0.3"
   }
 }
