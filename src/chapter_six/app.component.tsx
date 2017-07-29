@@ -8,7 +8,7 @@ import { syncHistoryWithStore, routerMiddleware } from 'react-router-redux'
 import { compose, applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-import createLogger from "redux-logger";
+import createLogger from "redux-logger";    // 日志中间件
 
 import reducer from './reducers';
 import LogonComponent from './component/logon.component';
