@@ -1,7 +1,3 @@
-/**
- * Created by Gene on 16/3/17.
- */
-
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux'
 
@@ -9,11 +5,7 @@ import ToolBarComponent from './toolbar.component';
 import UserTableComponent from './user.table.component';
 import * as Actions from '../actions/manager.action';
 
-
-require('../css/manager.sass');
-
 class ManagerComponent extends React.Component<any, any> {
-
     componentDidMount() {
         const { fetchGetIfNeeded} = this.props;
         fetchGetIfNeeded()
@@ -21,11 +13,14 @@ class ManagerComponent extends React.Component<any, any> {
 
     render() {
         const { users, modifyUserProperty, deleteUser, openUserFormAction } = this.props;
-
         return (
             <div>
                 <ToolBarComponent deleteUser={deleteUser} />
-                <UserTableComponent users={users} modifyUserProperty={modifyUserProperty} openUserFormAction={openUserFormAction} />
+                <UserTableComponent
+                    users={users}
+                    modifyUserProperty={modifyUserProperty}
+                    openUserFormAction={openUserFormAction}
+                />
             </div>
         )
     }

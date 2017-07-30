@@ -23,12 +23,12 @@ export const fetchPosts = (username) => {
         dispatch(requestPosts(username));
 
         return fetch('http://localhost:3002/logonJson', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            body: 'username=' + username
-        })
+                method: "POST",
+                headers: {
+                   "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: "username=" + username
+            })
             .then(res => res.json())
             .then(json => {
                 dispatch(receivePosts(json));

@@ -4,11 +4,10 @@ import { push } from 'react-router-redux';
 export const ADD_USER = 'ADD_USER';
 export const DELETE_USER = 'DELETE_USER';
 export const MODIFY_USER = 'MODIFY_USER';
-export const INITIALIZE_USER_FORM = 'INITIALIZE_USER_FORM';
 
 export const REQUEST_GET = 'REQUEST_GET';
 export const RECEIVE_GET = 'RECEIVE_GET';
-
+export const INITIALIZE_USER_FORM = 'INITIALIZE_USER_FORM';
 
 const addUser = (username, age) => {
     return {
@@ -60,7 +59,7 @@ function fetchGet() {
         dispatch(requestGet());
 
         return fetch('./mock/users.json')
-            .then(response => response.json())
+            .then(res => res.json())
             .then(json => dispatch(receiveGet(json)))
     }
 }
@@ -106,6 +105,6 @@ export const openUserFormAction = (user, seq) => {
 export const modifyUserPropertyAction = (username, age, seq) => {
     return dispatch => {
         dispatch(modifyUser(username, age, seq));
-        dispatch(push('.manager'));
+        dispatch(push('/manager'));
     }
 };
