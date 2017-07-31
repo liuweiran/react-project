@@ -15,6 +15,7 @@ module.exports = {
         'test_four2': './build/test_four2/test_four2.js',
         'test_five': './build/test_five/test_five.js',
         'test_six': './build/test_six/test_six.js',
+        'test_seven': './build/test_seven/test_seven.js',
     },
     output: {
         path: './release/dist',
