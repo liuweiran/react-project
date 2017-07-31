@@ -1,6 +1,3 @@
-import * as Router from 'react-router';
-const {Link, IndexLink} = Router;
-
 import NavLink from './NavLink';
 
 export default class AppComponent extends React.Component<any, any> {
@@ -13,7 +10,7 @@ export default class AppComponent extends React.Component<any, any> {
                     <li><NavLink to="/about">About</NavLink></li>
                     <li><NavLink to="/Repos">Repos</NavLink></li>
                 </ul>
-                {this.props.children}
+                {this.props.children}   {/*代表子组件*/}
             </div>
         )
     }

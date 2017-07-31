@@ -1,7 +1,6 @@
 import ProductCategory from './ProductCategoryRow';
 import ProductRow from './ProductRow';
 
-
 interface ProductTableProps {
     products: Array<any>;
     filterText: string;

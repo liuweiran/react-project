@@ -1,5 +1,5 @@
 import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 
 import ToolBarComponent from './toolbar.component';
 import UserTableComponent from './user.table.component';
@@ -7,8 +7,8 @@ import * as Actions from '../actions/manager.action';
 
 class ManagerComponent extends React.Component<any, any> {
     componentDidMount() {
-        const { fetchGetIfNeeded} = this.props;
-        fetchGetIfNeeded()
+        const { fetchGetIfNeeded } = this.props;
+        fetchGetIfNeeded();
     }
 
     render() {

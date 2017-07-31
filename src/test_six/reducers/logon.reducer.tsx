@@ -6,7 +6,7 @@ export default (state = {isFetching: false, res:{}}, action) => {
         case REQUEST_POSTS:
             return objectAssign({}, state, {isFetching: true});
         case RECEIVE_POSTS:
-            return objectAssign({}, state, {isFetching: false, res:action.res});
+            return objectAssign({}, state, {isFetching: false, res: action.res});
         default:
             return state;
     }
