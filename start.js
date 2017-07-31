@@ -20,3 +20,12 @@ app.post('/logonJson', function (req, res) {
     })
 
 });
+
+app.post('/deleteUserJson', function (req, res) {
+
+    res.json({
+        "status": true,
+        "msg": "删除成功"
+    })
+
+});

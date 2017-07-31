@@ -1,13 +1,16 @@
 import * as objectAssign from 'object-assign';
-import { ADD_USER, DELETE_USER, MODIFY_USER, REQUEST_GET, RECEIVE_GET, INITIALIZE_USER_FORM } from '../actions/manager.action';
+import { ADD_USER, DELETE_USER, MODIFY_USER, REQUEST_GET, RECEIVE_GET, INITIALIZE_USER_FORM, REQUEST_POST, RECEIVE_POST } from '../actions/manager.action';
 
 export default (state = {isFetching: false, users:[]}, action) => {
 
     switch (action.type) {
         case REQUEST_GET:
+        case REQUEST_POST:
             return objectAssign({}, state, {isFetching: true});
         case RECEIVE_GET:
             return objectAssign({}, state, {isFetching: false, users: action.users});
+        case RECEIVE_POST:
+            return objectAssign({}, state, {isFetching: false, res: action.res});
         case ADD_USER:
             return objectAssign({}, state, {isFetching: false, users: [...state.users, action.user]});
         case MODIFY_USER:
@@ -27,7 +30,7 @@ export default (state = {isFetching: false, users:[]}, action) => {
             });
             return objectAssign({}, state, {isFetching: false, users: usersReste});
         case INITIALIZE_USER_FORM:
-            return objectAssign({}, state, {isFetching: false,user: action.user});
+            return objectAssign({}, state, {isFetching: false, user: action.user});
         default:
             return state;
     }

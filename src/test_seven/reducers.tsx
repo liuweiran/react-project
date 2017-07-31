@@ -1,9 +1,6 @@
-import { combineReducers } from 'redux'
-import {
-    SELECT_SUBREDDIT, INVALIDATE_SUBREDDIT ,
-    REQUEST_POSTS, RECEIVE_POSTS
-} from './actions'
-import objectAssign = require("object-assign");
+import { combineReducers } from 'redux';
+import { SELECT_SUBREDDIT, INVALIDATE_SUBREDDIT, REQUEST_POSTS, RECEIVE_POSTS } from './actions';
+import * as objectAssign from "object-assign";
 
 function selectedSubreddit(state = 'reactjs', action) {
     switch (action.type) {
@@ -21,7 +18,6 @@ function posts(state = {
 }, action) {
     switch (action.type) {
         case INVALIDATE_SUBREDDIT :
-
             return objectAssign({}, state, {
                 didInvalidate: true
             });

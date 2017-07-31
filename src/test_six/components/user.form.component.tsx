@@ -23,11 +23,12 @@ class NewUserComponent extends React.Component<any, any> {
 
     render() {
         const { route, user } = this.props;
+        const isNewUser = (route.path === '/newUser');
         return (
             <div>
-                <input ref="username" placeholder="username" defaultValue={user.userName}/>
-                <input ref="age" placeholder="age" defaultValue={user.age}/>
-                <button onClick={route.path === '/newUser' ? this.handlerAddUser : this.handlerModifyUser}>save</button>
+                <input ref="username" placeholder="username" defaultValue={isNewUser ? '' : user.userName}/>{' '}
+                <input ref="age" placeholder="age" defaultValue={isNewUser ? '' : user.age}/>
+                <button onClick={isNewUser ? this.handlerAddUser : this.handlerModifyUser}>save</button>
             </div>
         )
     }
@@ -41,7 +42,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({addUserAction,modifyUserPropertyAction}, dispatch);
+    return bindActionCreators({addUserAction, modifyUserPropertyAction}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewUserComponent);

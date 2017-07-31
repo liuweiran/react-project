@@ -11,7 +11,7 @@ export default class UserTableComponent extends React.Component<any, any> {
                 <UserTableRowComponent
                     user={user}
                     seq={index}
-                    key={user.userName}
+                    key={user.id}
                     modifyUserProperty={modifyUserProperty}
                     openUserFormAction={openUserFormAction}
                 />);

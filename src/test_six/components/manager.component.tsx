@@ -12,10 +12,10 @@ class ManagerComponent extends React.Component<any, any> {
     }
 
     render() {
-        const { users, modifyUserProperty, deleteUser, openUserFormAction } = this.props;
+        const { users, modifyUserProperty, fetchPostDeleteUser, openUserFormAction } = this.props;
         return (
             <div>
-                <ToolBarComponent deleteUser={deleteUser} />
+                <ToolBarComponent fetchPostDeleteUser={fetchPostDeleteUser} />
                 <UserTableComponent
                     users={users}
                     modifyUserProperty={modifyUserProperty}

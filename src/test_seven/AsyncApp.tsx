@@ -1,7 +1,7 @@
-import { connect } from 'react-redux'
-import { selectSubreddit, fetchPostsIfNeeded, invalidateSubreddit } from './actions'
-import Picker from './picker.component'
-import Posts from './posts.component'
+import { connect } from 'react-redux';
+import { selectSubreddit, fetchPostsIfNeeded, invalidateSubreddit } from './actions';
+import Picker from './picker.component';
+import Posts from './posts.component';
 
 class AsyncApp extends React.Component<any, any> {
     constructor(props) {
@@ -12,20 +12,20 @@ class AsyncApp extends React.Component<any, any> {
 
     componentDidMount() {
         const { dispatch, selectedSubreddit } = this.props;
-        dispatch(fetchPostsIfNeeded(selectedSubreddit))
+        dispatch(fetchPostsIfNeeded(selectedSubreddit));
     }
 
     componentWillReceiveProps(nextProps) {
         const { selectedSubreddit } = this.props;
         if (nextProps.selectedSubreddit !== selectedSubreddit) {
             const { dispatch, selectedSubreddit } = nextProps;
-            dispatch(fetchPostsIfNeeded(selectedSubreddit))
+            dispatch(fetchPostsIfNeeded(selectedSubreddit));
         }
     }
 
     private handleChange = (nextSubreddit) => {
         const { dispatch } = this.props;
-        dispatch(selectSubreddit(nextSubreddit))
+        dispatch(selectSubreddit(nextSubreddit));
     };
 
     private handleRefreshClick = (e) => {
@@ -33,7 +33,7 @@ class AsyncApp extends React.Component<any, any> {
 
         const { dispatch, selectedSubreddit } = this.props;
         dispatch(invalidateSubreddit(selectedSubreddit));
-        dispatch(fetchPostsIfNeeded(selectedSubreddit))
+        dispatch(fetchPostsIfNeeded(selectedSubreddit));
     };
 
     render () {
@@ -84,7 +84,6 @@ function mapStateToProps(state) {
         lastUpdated : '',
         items: []
     };
-
     return {
         selectedSubreddit,
         posts,
