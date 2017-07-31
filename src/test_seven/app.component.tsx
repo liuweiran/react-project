@@ -1,10 +1,10 @@
 import { compose, applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-import createLogger from 'redux-logger';
+import createLogger from "redux-logger";
 
 import reducer from './reducers';
-import AsycApp from './AsyncApp';
+import AsyncApp from './AsyncApp';
 
 const logger = createLogger();
 const store = createStore(reducer, compose(
@@ -16,7 +16,7 @@ export default class AppComponent extends React.Component<any, any> {
     render() {
         return (
             <Provider store={store}>
-                <AsycApp />
+                <AsyncApp />
             </Provider>
         )
     }
